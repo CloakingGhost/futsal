@@ -1,4 +1,4 @@
-# 최종은 master branch
+# 최종위치 master branch
 
 
 ### 커밋 메세지 & 풀 리퀘스트 작성 요령
