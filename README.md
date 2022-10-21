@@ -15,9 +15,9 @@
 #### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../project/futsal
 
   1. Open 에디터
-   - git commit -am ' '   <- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
+    - git commit -am ' '   <- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
   2. 깃허브(원격 저장소)에서 커밋 확인
-   - git fetch
+    - git fetch
   3. 자료를 받으려는 브랜치로 이동
    - git checkout 브랜치이름         <- 안해도 되는 걸로 아는데 일단 이렇게 해주세요 확인해볼게요
   4. 본인 컴퓨터에 자료물을 합친다(로컬로 불러온다)
