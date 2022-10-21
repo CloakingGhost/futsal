@@ -26,7 +26,7 @@
 
   위 1,2,3번 대신
   4. pull로 받는다 !조건 모든 작업이 푸쉬완료 되있어야 함
-   - git pull 리모트이름 브랜치이름*       <- 예) git pull origin master 
+   - git pull 리모트이름 브랜치이름       <- 예) git pull origin master 
  
  ---
  
