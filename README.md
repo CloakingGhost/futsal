@@ -11,6 +11,7 @@
  - 내려받는 순서 : merge <- fetch(원격저장소) : fetch + merge = pull
  - 리모트(remote) : 원격저장소의 이름 (origin, upstream 등)
  - 브랜치(branch) : 원격저장소의 저장되는 폴더 이름 (master, main 등), 가지
+ - https://ibb.co/ZJQT936
    
 #### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
 
