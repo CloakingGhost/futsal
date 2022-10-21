@@ -57,7 +57,7 @@
   - git checkout 브랜치 이름
  3. 브랜치 확인
   - git branch -a[-v]  
-#####
+#
  4. 임시저장
   - git stash　　　　　　<- 커밋이 불필요할 때 / 다른작업을 해야할 때
  5. 임시저장 목록
@@ -65,7 +65,7 @@
  6. 임시저장 불러오기
   - git stash apply
   - git stash apply 임시저장이름  
-#####
+#
 7. 리모트이름 변경
   - git remote set-url 변경할리모드이름 새로운원격저장소주소
  8. 리모트 추가
