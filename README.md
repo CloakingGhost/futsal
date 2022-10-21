@@ -16,17 +16,17 @@
 #### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
 
   1. Open 에디터
-   - git commit -am ' '                  <- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
+   - git commit -am ' '　　　　　　　　　　　　　<- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
   2. 깃허브(원격 저장소)에서 커밋 확인
    - git fetch
   3. 자료를 받으려는 브랜치로 이동
-   - git checkout 브랜치이름              <- 안해도 되는 걸로 아는데 일단 이렇게 해주세요 확인해볼게요
+   - git checkout 브랜치이름　　　　　　　　　　　<- 안해도 되는 걸로 아는데 일단 이렇게 해주세요 확인해볼게요
   4. 본인 컴퓨터에 자료물을 합친다(로컬로 불러온다)
    - git merge 브랜치이름
-
+</br>
   위 1,2,3번 대신  
-   5. pull로 받는다 !조건 모든 작업이 푸쉬완료 되있어야 함
-   - git pull 리모트이름 브랜치이름       <- 예) git pull origin master 
+  　 5. pull로 받는다 !조건 모든 작업이 푸쉬완료 되있어야 함
+ 　  - git pull 리모트이름 브랜치이름　　　　　　　　<- 예) git pull origin master 
  
  ---
  
@@ -34,11 +34,11 @@
 #### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
 #### 푸쉬받을 브랜치로 변경
  1. 모든 파일 저장 후 커밋 할 내용 추가(stage:스테이징한다)
-  - git add .                         <- . 은 모든 파일을 뜻함, 명시해도 됨
+  - git add .　　　　　　　　　　　　　　<- . 은 모든 파일을 뜻함, 명시해도 됨
  2. 커밋 메세지 작성
-  - git commit -m ''                  <- '' 안에 메세지 작성\
+  - git commit -m ''　　　　　　　　　　<- '' 안에 메세지 작성\
  3. 원격 저장소에 올린다
-  - git push 리모트이름 브랜치이름      <- 예) git push origin master
+  - git push 리모트이름 브랜치이름　　　<- 예) git push origin master
   
  ---
  
@@ -58,16 +58,16 @@
   - git checkout 브랜치 이름
  3. 브랜치 확인
   - git branch -a[-v]
-
+</br>
  4. 임시저장
-  - git stash   <- 커밋이 불필요할 때 / 다른작업을 해야할 때
+  - git stash　　　　　　<- 커밋이 불필요할 때 / 다른작업을 해야할 때
  5. 임시저장 목록
   - git stash list
  6. 임시저장 불러오기
   - git stash apply
   - git stash apply 임시저장이름
-
+</br>
  7. 리모트이름 변경
   - git remote set-url 변경할리모드이름 새로운원격저장소주소
  8. 리모트 추가
-  - git remote add 리모트이름 원격저장소주소     <- 삭제는 add 대신 remove
+  - git remote add 리모트이름 원격저장소주소　　　　<- 삭제는 add 대신 remove
