@@ -58,7 +58,7 @@
   - git checkout 브랜치 이름
  3. 브랜치 확인
   - git branch -a[-v]
-</br>
+`</br>`
  4. 임시저장
   - git stash　　　　　　<- 커밋이 불필요할 때 / 다른작업을 해야할 때
  5. 임시저장 목록
