@@ -9,28 +9,28 @@
 ### 참고
  - 올리는 순서   : add -> commit -> push(원격저장소)
  - 내려받는 순서 : merge <- fetch(원격저장소) : fetch + merge = pull
- - 리모트 : 원격저장소의 이름 (origin, upstream 등)
- - 브랜치 : 원격저장소의 저장되는 폴더 이름 (master, main 등)
+ - 리모트(remote) : 원격저장소의 이름 (origin, upstream 등)
+ - 브랜치(branch) : 원격저장소의 저장되는 폴더 이름 (master, main 등), 가지
    
-#### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../project/futsal
+#### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
 
   1. Open 에디터
-    - git commit -am ' '   <- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
+   - git commit -am ' '                  <- ' ' 안에 메세지 작성 / add 와 commit 동시에 할수 있음
   2. 깃허브(원격 저장소)에서 커밋 확인
-    - git fetch
+   - git fetch
   3. 자료를 받으려는 브랜치로 이동
-   - git checkout 브랜치이름         <- 안해도 되는 걸로 아는데 일단 이렇게 해주세요 확인해볼게요
+   - git checkout 브랜치이름              <- 안해도 되는 걸로 아는데 일단 이렇게 해주세요 확인해볼게요
   4. 본인 컴퓨터에 자료물을 합친다(로컬로 불러온다)
    - git merge 브랜치이름
 
   위 1,2,3번 대신
   4. pull로 받는다 !조건 모든 작업이 푸쉬완료 되있어야 함
-   - git pull 리모트이름 브랜치이름       <- 예) git pull origin master 
+   - git pull 리모트이름 브랜치이름*       <- 예) git pull origin master 
  
  ---
  
 ### 깃허브에 저장(원격 저장소에 올리기)
-#### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../futsal
+#### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
 #### 푸쉬받을 브랜치로 변경
  1. 모든 파일 저장 후 커밋 할 내용 추가(stage:스테이징한다)
   - git add .                         <- . 은 모든 파일을 뜻함, 명시해도 됨
@@ -44,7 +44,7 @@
 ### 원격저장소 복제(최초 1회만 권장)
  1. 레퍼지토리 사용권한을 받는다
  2. code의 깃허브 주소 복사
- 3. 깃 배쉬로 프로젝트를 저장할 위치로 이동 예) e:/폴더/.../project
+ 3. 깃 배쉬로 프로젝트를 저장할 위치로 이동 예) e:/폴더/.../projects
  4. 복제(git init, git remote 설정 안해도 됨)
   - git clone 원격저장소주소 프로젝트담을폴더이름
   
@@ -69,8 +69,4 @@
  7. 리모트이름 변경
   - git remote set-url 변경할리모드이름 새로운원격저장소주소
  8. 리모트 추가
-  - git remote add origin 원격저장소주소     <- 삭제는 add 대신 remove
-
----
-   
-   
+  - git remote add 리모트이름 원격저장소주소     <- 삭제는 add 대신 remove
