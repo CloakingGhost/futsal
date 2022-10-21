@@ -24,9 +24,9 @@
   5. 본인 컴퓨터에 자료물을 합친다(로컬로 불러온다)
    - git merge 브랜치이름
   
-  **위 1,2,3번 대신  **
+  __위 1,2,3번 대신__  
 　6. pull로 받는다 !조건 이전모든 작업이 푸쉬완료 되있어야 함 즉, 변경된 사항이 없어야한다  
-　 - git pull 리모트이름 브랜치이름　　　　　　　　<- 예) git pull origin master 
+- git pull 리모트이름 브랜치이름　　　　　　　　<- 예) git pull origin master 
   
  ---
   
