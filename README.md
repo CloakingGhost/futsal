@@ -9,7 +9,7 @@
  - 올리는 순서   : add -> commit -> push(원격저장소)
  - 내려받는 순서 : merge <- fetch(원격저장소) : fetch + merge = pull
  - 리모트(remote) : 원격저장소의 이름 (origin, upstream 등)
- - 브랜치(branch) : 원격저장소의 저장되는 폴더 이름 (master, main 등), 가지
+ - 브랜치(local branch) : 원격저장소의 저장되는 폴더 이름 (master, main 등), 가지, 
  - https://ibb.co/ZJQT936  
   
 #### 깃 배쉬로 해당 프로젝트 안까지 들어온다 예) e:/폴더/.../projects/futsal
@@ -65,7 +65,18 @@
   - git stash apply
   - git stash apply 임시저장이름  
 #
-7. 리모트이름 변경
+ 7. 리모트이름 변경
   - git remote set-url 변경할리모드이름 새로운원격저장소주소
  8. 리모트 추가
   - git remote add 리모트이름 원격저장소주소　　　　<- 삭제는 add 대신 remove
+ 9. 리모트 확인
+  - git remote -v
+#
+ 10. 받은 커밋취소
+  - git reset --hard 리모트이름/브랜치이름　　　　　<- 같은 공간을 작업했을 시 충돌이 일어난다, 그때 사용
+ 11. 깃 상태 확인
+  - git status
+ 12. 커밋 로그 확인
+  - git log
+ 13. 커밋 충돌위치 확인
+  - git diff
