@@ -18,7 +18,7 @@ public class MemberDTO {
    private String tName; //회원가입시는 null, 팀생성할때들어감
    private Integer hadPoint; // 보유포인트, 회원가입시 0
    public MemberDTO() {
-	   
+      
    }
    
    

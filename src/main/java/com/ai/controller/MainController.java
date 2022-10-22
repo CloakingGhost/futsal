@@ -47,7 +47,11 @@ public class MainController {
 	public void test03() {
 		
 	}
-	
+//	TEST TEAMTABLE 
+	@RequestMapping(value = "/teamtables")
+	public void test04() {
+		   
+	}
 	
 	@RequestMapping(value = "/login")
 	public ModelAndView getLogin() throws UnsupportedEncodingException {
@@ -113,7 +117,7 @@ public class MainController {
 		System.out.println("login info : " + userInfo.toString());
 		session.setAttribute("userId", userInfo.get("email"));
 		// 메인페이지 위치로
-		mav.setViewName("redirect:/login");
+		mav.setViewName("redirect:login");
 		return mav;
 	}
 	
@@ -137,7 +141,7 @@ public class MainController {
 		mav.addObject("fNList", fNList);
 		mav.addObject("latList", latList);
 		mav.addObject("lonList", lonList);		
-	    mav.setViewName("/main");
+	    mav.setViewName("main");
 	    return mav;
 	}
 	
@@ -169,8 +173,8 @@ public class MainController {
 				cookie.setMaxAge(0);
 				response.addCookie(cookie);
 			}
-			// 메인 페이지 위치로
-			mav.setViewName("redirect:/main");
+			// 메인
+			mav.setViewName("redirect:main");
 			
 			return mav;
 		}

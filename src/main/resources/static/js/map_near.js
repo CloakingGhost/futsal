@@ -1,16 +1,20 @@
 $(document).ready(function(){
-	var fNList = document.getElementById('fNList').value;
-	fNList = fNList.split(",")
-	
-	var latList = document.getElementById('latList').value;
-	latList = latList.split(",")
-	var lonList = document.getElementById('lonList').value;
-	lonList = lonList.split(",")
-	var mapContainer = document.getElementById('map_n'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 4 // 지도의 확대 레벨 
-    }; 
+var markers = []
+var fNames = []
+var clickedOverlay = 0;
+var customOverlays = [];
+var fNList = document.getElementById('fNList').value;
+fNList = fNList.split(",")
+
+var latList = document.getElementById('latList').value;
+latList = latList.split(",")
+var lonList = document.getElementById('lonList').value;
+lonList = lonList.split(",")
+var mapContainer = document.getElementById('map_n'), // 지도를 표시할 div 
+mapOption = { 
+    center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+    level: 4 // 지도의 확대 레벨 
+}; 
 
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
@@ -54,8 +58,9 @@ function displayMarker(locPosition) {
 	var imageSize = new kakao.maps.Size(24, 35); 
 	var imageSize2 = new kakao.maps.Size(44, 44);
 	var imageOption = {offset: new kakao.maps.Point(27, 69)}
-	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
-	var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2, imageOption)
+	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize)
+	var markerImage2 = new kakao.maps.MarkerImage(imageSrc2, imageSize2)
+    var cnt = 0
     // 첫 마커를 생성합니다
     var marker = new kakao.maps.Marker({  
         map: map, 
@@ -87,32 +92,64 @@ function displayMarker(locPosition) {
 			image: markerImage2,
 			text: fName
 		})
+		markers[i] = marker2.getPosition().getLat().toString() + ", " + marker2.getPosition().getLng().toString()
+		fNames[i] = fName
 		
-		var customOverlay = new kakao.maps.CustomOverlay({
-   			position: locPosition2,
-    		content: '<span class="info-window">' + fName + '</span>',
-    		yAnchor: 1  
+		
+    	//kakao.maps.event.addListener(marker2, 'mouseover', makeOverListener(map, marker2, customOverlay));
+    	kakao.maps.event.addListener(marker2, 'mouseover', showInfo(marker2, map));	
+ 		kakao.maps.event.addListener(map, 'zoom_changed', function(){
+			for(var j = 0; j < customOverlays.length; j++){
+				customOverlays.pop().setMap(null)
+			}
 		});
-		
-		//var infowindow2 = new kakao.maps.InfoWindow({
-        //	content: 
-        //    zIndex:1
-    	//});
-    	
-    	kakao.maps.event.addListener(marker2, 'mouseover', makeOverListener(map, marker2, customOverlay));
-    	kakao.maps.event.addListener(marker2, 'mouseout', makeOutListener(customOverlay));    	
-    	kakao.maps.event.addListener(marker2, 'click', moveToField(fName));
     }
-    // 지도 중심좌표를 접속위치로 변경합니다
-    map.setCenter(locPosition);      
+	
+    map.setCenter(locPosition);
 }
 
-function moveToField(fName){
+function showInfo(marker, map){
 	return function(){
-		location.href = "field/click?fName=" + fName;
+		var str = marker.getPosition().getLat().toString() + ", " + marker.getPosition().getLng().toString()
+		var content = '<div class="overlaybox"><ul>'
+		for(var k = 0; k < markers.length; k++){
+			if(markers[k] == str){
+				if(content == ""){
+					content = '<li class="up"><a href="/field/click?fName=' + fNames[k] + '"><span class="title">' + fNames[k] + '</span></a></li>'
+				}
+				else {
+					content = content +'<li class="up"><a href="/field/click?fName=' + fNames[k] + '"><span class="title">' + fNames[k] + '</span></a></li>'
+				}
+			}
+		}
+		content = content + "</ul></div>"
+		var locPosition3 = new kakao.maps.LatLng(marker.getPosition().getLat(), marker.getPosition().getLng())
+		var customOverlay = new kakao.maps.CustomOverlay({
+   			position: locPosition3,
+   			content: content,
+   			zIndex: 1,
+   			clickable: false
+		}); 
+		if(map.getLevel() < 9){
+        	customOverlay.setMap(map, marker);
+        }
+        if(customOverlays.length < 1){
+        	customOverlays.push(customOverlay)
+		}
+		else {
+			for(var i = 0; i < customOverlays.length; i++){
+				customOverlays.pop().setMap(null)
+			}
+			customOverlays.push(customOverlay)
+		}
+		console.log(customOverlays.length)
+		return customOverlays
 	}
 }
-   
+
+
+
+
 function makeOverListener(map, marker, customOverlay) {
     return function() {
 		console.log(map.getLevel())
@@ -121,9 +158,11 @@ function makeOverListener(map, marker, customOverlay) {
         }
     };
 }
-function makeOutListener(customOverlay) {
+
+function disableInfo(customOverlay) {
     return function() {
-        customOverlay.setMap(null);
+		customOverlay.setMap(null)
     };
 }	
+
 })
